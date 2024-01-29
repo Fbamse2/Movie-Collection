@@ -21,10 +21,11 @@
     .grid-container {
       display: grid;
       grid-template-areas:
-        'header main main main main main'
-        'menu main main main main main'
-        'menu main main main main main'
+        'main main main main main main'
+        'main main main main main main'
+        'main main main main main main'
         'footer footer footer footer footer footer';
+
       gap: 10px;
       background-color: #282c35;
       padding: 20px;
@@ -81,27 +82,11 @@
   </style>
 </head>
 <body>
-<div class="grid-container">
-    <div style="grid-area: header;">
-        <h1>Snehvide Og De Syv Små Dværge</h1>
-    </div>
-    <div style="grid-area: menu;">
-        <table class="infobox">
-            <tbody>
-                <tr>
-                    <th>Overblik</th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="grid-container">
     <div id="video-container">
       <iframe src="https://filemoon.sx/e/jmgw8t5xrizv/_Disney_Classic_1__Snehvide_Og_De_Syv_Sm__Dv_rge" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
     </div>
-    
-    <!--<div style="grid-area: right;">Right</div>-->
     <div style="grid-area: footer;">Footer</div>
-    
-</div>
-
+  </div>
 </body>
 </html>
