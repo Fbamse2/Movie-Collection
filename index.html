@@ -9,8 +9,17 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-height: 95vh;
       overflow-y: hidden;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0px;
+    }
+
+    table, th, td {
+      border: 0px solid;
+      padding: 3px;
     }
 
     h1, p {
@@ -21,14 +30,14 @@
     .grid-container {
       display: grid;
       grid-template-areas:
-        'main main main main main main'
-        'main main main main main main'
-        'main main main main main main'
+        'header header header header header header'
+        'main main main main menu menu'
+        'main main main main menu menu'
+        'main main main main menu menu'
         'footer footer footer footer footer footer';
 
       gap: 10px;
       background-color: #282c35;
-      padding: 20px;
       min-height: 100vh;
       color: #fff;
     }
@@ -36,20 +45,19 @@
     .grid-container > div {
       background-color: #3d444f;
       text-align: center;
-      padding: 20px;
       font-size: 1.2rem;
       border-radius: 8px;
     }
 
     #video-container {
-      grid-area: main;
       background-color: #3d444f;
-      padding: 20px;
       border-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      height: 100%;
+      width: 100%;
     }
 
     iframe {
@@ -58,38 +66,162 @@
       border: none;
     }
 
-    /* Adjusted footer styling */
+    [style="grid-area: header;"] {
+      height: 10vh;
+    }
+
+    [style="grid-area: menu;"] {
+      height: 70vh;
+    }
+
+    [style="grid-area: main;"] {
+      height: 70vh;
+    }
+
     [style="grid-area: footer;"] {
-      padding: 10px; /* Adjusted padding */
-      font-size: 1rem; /* Adjusted font size */
+      height: 20vh;
     }
 
-    /* Media Query for iPhones */
-    @media only screen and (max-width: 600px) {
-      .grid-container {
-        grid-template-areas:
-          'header'
-          'menu'
-          'main'
-          'footer';
-      }
 
-      #video-container {
-        padding: 10px; /* Adjusted padding for smaller screens */
-      }
+    .tab {
+      overflow: hidden;
+      border: 2px solid #333;
+      border-radius: 5px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: gray;
+      border-radius: 5px;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: gray;
+      border-radius: 5px;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      padding: 6px 12px;
+      height: 25rem;
+
+    }
+
+
+
+
+
 
   </style>
 </head>
+
+
+
+
+
 <body>
   <div class="grid-container">
-    <div id="video-container">
-      <iframe src="https://filemoon.sx/e/jmgw8t5xrizv/_Disney_Classic_1__Snehvide_Og_De_Syv_Sm__Dv_rge" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+    
+    <div style="grid-area: header;">
+      <h1>Anime</h1>
     </div>
-    <div style="grid-area: footer;">Footer</div>
-    <ul>
-      <li>test</li>
-    </ul>
+
+    <div style="grid-area: menu;">
+
+      <table>
+        <tr>
+          <th>Release Year</th>
+          <th>episodes</th>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td>12</td>
+          </tr>
+          <tr>
+            <div class="tab">
+              <button class="tablinks active" onclick="Episode(event, 'ep1')">ep1</button>
+              <button class="tablinks" onclick="Episode(event, 'ep2')">ep2</button>
+              <button class="tablinks" onclick="Episode(event, 'ep3')">ep3</button>
+              <button class="tablinks" onclick="Episode(event, 'ep4')">ep4</button>
+            </div>
+          </tr>
+        </table>
+
+
+
+      
+      </div>
+      <div style="grid-area: main;">
+        <div id="ep1" class="tabcontent">
+          <h3>episode 1</h3>
+          <div id="video-container">
+            <iframe src="https://filemoon.sx/e/kdxrd66kqwli/S1Ep1_The_Man_Who_Became_a_Kaiju__2024_.mp4" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div id="ep2" class="tabcontent">
+          <h3>episode 2</h3>
+          <div id="video-container">
+            <iframe src="https://filemoon.sx/e/moajvzk7kkbw/S1Ep2_The_Kaiju_Who_Defeats_Kaiju__2024_.mp4" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div id="ep3" class="tabcontent">
+          <h3>episode 3</h3>
+          <div id="video-container">
+            <iframe src="https://filemoon.sx/e/g6xhgle9c76r/S1Ep3_Revenge_Match__2024_.mp4" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div id="ep4" class="tabcontent">
+          <h3>episode 4</h3>
+          <div id="video-container">
+            <iframe src="https://filemoon.sx/e/oskivf3fvwsq/S1Ep4_Fortitude_9.8__2024_.mp44" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    <div style="grid-area: footer;">
+      <h4>Footer</h4>
+    </div>
+
   </div>
+
+
+
+  <script>
+    function Episode(evt, EpisodeName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(EpisodeName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    Episode(event, 'ep1')
+    </script>
+
 </body>
+
 </html>
